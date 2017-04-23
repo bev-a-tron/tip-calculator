@@ -27,12 +27,12 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
-    @IBAction func onEditingChanged(sender: AnyObject) {
+    @IBAction func onEditingChanged(_ sender: AnyObject) {
         
         var tipPercentages = [0.18, 0.2, 0.22]
         var tipPercentage = tipPercentages[tipControl.selectedSegmentIndex]
         
-        var billAmount = (billField.text as NSString).doubleValue
+        var billAmount = (billField.text! as NSString).doubleValue
         var tip = billAmount * tipPercentage
         var total = billAmount + tip
         tipLabel.text = "$\(tip)"
@@ -42,7 +42,7 @@ class ViewController: UIViewController {
         totalLabel.text = String(format: "%.2f", total)
     }
 
-    @IBAction func onTap(sender: AnyObject) {
+    @IBAction func onTap(_ sender: AnyObject) {
         view.endEditing(true)
     }
 }
